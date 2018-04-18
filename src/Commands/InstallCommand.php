@@ -2,13 +2,18 @@
 
 namespace Pvtl\VoyagerPages\Commands;
 
+use Pvtl\VoyagerPages\Providers\PagesServiceProvider;
+use TCG\Voyager\Traits\Seedable;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
-use Pvtl\VoyagerPages\Providers\PagesServiceProvider;
 
 class InstallCommand extends Command
 {
+    use Seedable;
+
+    protected $seedersPath = __DIR__.'/../../database/seeds/';
+
     /**
      * The console command name.
      *
@@ -62,7 +67,13 @@ class InstallCommand extends Command
         $this->call('migrate');
 
         $this->info('Seeding data into the database');
-        $this->call('db:seed', ['--class' => 'PageSeeder']);
+
+        $this->seed('PagesDataTypesTableSeeder');
+        $this->seed('PagesDataRowsTableSeeder');
+        $this->seed('PagesMenuItemsTableSeeder');
+        $this->seed('PagesPermissionsTableSeeder');
+        $this->seed('PagesPermissionRoleTableSeeder');
+        $this->seed('PagesSeeder');
 
         $this->info('Successfully installed Voyager Pages! Enjoy');
     }
