@@ -1,6 +1,6 @@
 {
     "name": "pvtl/voyager-pages",
-    "description": "Ahoy! - A package to implement page blocks into Voyager",
+    "description": "Ahoy! - A package to implement pages into Voyager",
     "keywords": [
         "laravel",
         "frontend",
