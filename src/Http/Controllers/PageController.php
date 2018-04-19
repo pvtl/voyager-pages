@@ -18,7 +18,7 @@ class PageController extends BaseVoyagerBreadController
     {
         $page = Page::where('slug', '=', $slug)->firstOrFail();
 
-        return view('voyager-pages::default', [
+        return view('voyager-pages::modules.pages.default', [
             'page' => $page,
         ]);
     }
