@@ -8,6 +8,11 @@ use TCG\Voyager\Http\Controllers\VoyagerBreadController as BaseVoyagerBreadContr
 class PageController extends BaseVoyagerBreadController
 {
     /**
+     * This is the module's view path that can be overriden
+     */
+    protected $viewPath = 'voyager-pages::modules.pages.default';
+
+    /**
      * Route: Gets a single page and passes data to a view
      *
      * @param string $slug
@@ -18,7 +23,7 @@ class PageController extends BaseVoyagerBreadController
     {
         $page = Page::where('slug', '=', $slug)->firstOrFail();
 
-        return view('voyager-pages::modules.pages.default', [
+        return view($this->viewPath, [
             'page' => $page,
         ]);
     }
