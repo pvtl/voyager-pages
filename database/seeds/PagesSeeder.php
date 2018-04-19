@@ -44,4 +44,9 @@ class PagesSeeder extends Seeder
             ])->save();
         }
     }
+
+    protected function findPage($slug)
+    {
+        return Page::firstOrNew(['slug' => $slug]);
+    }
 }
