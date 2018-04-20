@@ -10,7 +10,7 @@ class PageController extends BaseVoyagerBreadController
     /**
      * This is the module's view path that can be overriden
      */
-    protected $viewPath = 'voyager-pages::modules.pages.default';
+    protected $viewPath = 'voyager-pages';
 
     /**
      * Route: Gets a single page and passes data to a view
@@ -23,7 +23,7 @@ class PageController extends BaseVoyagerBreadController
     {
         $page = Page::where('slug', '=', $slug)->firstOrFail();
 
-        return view($this->viewPath, [
+        return view("{$this->viewPath}::modules.pages.default", [
             'page' => $page,
         ]);
     }
