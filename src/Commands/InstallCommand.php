@@ -67,13 +67,7 @@ class InstallCommand extends Command
         $this->call('migrate');
 
         $this->info('Seeding data into the database');
-
-        $this->seed('PagesDataTypesTableSeeder');
-        $this->seed('PagesDataRowsTableSeeder');
-        $this->seed('PagesMenuItemsTableSeeder');
-        $this->seed('PagesPermissionsTableSeeder');
-        $this->seed('PagesPermissionRoleTableSeeder');
-        $this->seed('PagesSeeder');
+        $this->seed('PagesDatabaseSeeder');
 
         $this->info('Successfully installed Voyager Pages! Enjoy');
     }

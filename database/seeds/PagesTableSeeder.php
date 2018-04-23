@@ -3,7 +3,7 @@
 use Pvtl\VoyagerPages\Page;
 use Illuminate\Database\Seeder;
 
-class PagesSeeder extends Seeder
+class PagesTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
