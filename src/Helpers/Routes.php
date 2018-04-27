@@ -5,6 +5,7 @@ namespace Pvtl\VoyagerPages\Helpers;
 use Pvtl\VoyagerPages\Page;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Request;
 
 class Routes
@@ -14,6 +15,11 @@ class Routes
      */
     public static function registerPageRoutes()
     {
+        // Prevents error before our migration has run
+        if (!Schema::hasTable('pages')) {
+            return;
+        }
+
         // Which Page Controller shall we use to display the page? Page Blocks or standard page?
         $pageController = '\Pvtl\VoyagerPages\Http\Controllers\PageController';
 
