@@ -11,10 +11,11 @@ class PagesPermissionsTableSeeder extends Seeder
     public function run()
     {
         $keys = [
-            'browse_admin',
-            'browse_database',
-            'browse_media',
-            'browse_compass',
+            'browse_pages',
+            'read_pages',
+            'edit_pages',
+            'add_pages',
+            'delete_pages',
         ];
 
         foreach ($keys as $key) {
