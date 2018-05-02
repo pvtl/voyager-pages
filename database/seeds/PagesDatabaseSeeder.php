@@ -21,6 +21,6 @@ class PagesDatabaseSeeder extends Seeder
         $this->seed('PagesMenuItemsTableSeeder');
         $this->seed('PagesPermissionsTableSeeder');
         $this->seed('PagesPermissionRoleTableSeeder');
-        $this->seed('PagesTableSeeder');
+        $this->seed('PagesModuleTableSeeder');
     }
 }
