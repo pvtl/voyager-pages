@@ -3,9 +3,9 @@
 namespace Pvtl\VoyagerPages\Http\Controllers;
 
 use Pvtl\VoyagerPages\Page;
-use TCG\Voyager\Http\Controllers\VoyagerBreadController as BaseVoyagerBreadController;
+use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
-class PageController extends BaseVoyagerBreadController
+class PageController extends VoyagerBaseController
 {
     /**
      * This is the module's view path that can be overriden
