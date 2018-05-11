@@ -23,7 +23,6 @@ class PagesModuleTableSeeder extends Seeder
                 'image' => 'pages/page1.jpg',
                 'slug' => 'home',
                 'meta_description' => 'This is the meta description',
-                'meta_keywords' => 'keyword1, keyword2, keyword3',
                 'status' => 'ACTIVE',
             ])->save();
         }
@@ -39,7 +38,21 @@ class PagesModuleTableSeeder extends Seeder
                 'image' => 'posts/post2.jpg',
                 'slug' => 'about',
                 'meta_description' => 'This is the meta description for about',
-                'meta_keywords' => 'keyword1, keyword2, keyword3',
+                'status' => 'ACTIVE',
+            ])->save();
+        }
+
+        // Create a Contact Page
+        $page = $this->findPage('contact');
+        if (!$page->exists) {
+            $page->fill([
+                'title' => 'Contact',
+                'author_id' => 0,
+                'excerpt' => 'This is the excerpt for the Lorem Ipsum Page',
+                'body' => '<p><br /></p><h3 class="text-center">This is the body of the lorem ipsum page</h3><p class="text-center">This is the body of the lorem ipsum page</p><p><br /></p>',
+                'image' => 'posts/post2.jpg',
+                'slug' => 'contact',
+                'meta_description' => 'This is the meta description for contact',
                 'status' => 'ACTIVE',
             ])->save();
         }
