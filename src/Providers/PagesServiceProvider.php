@@ -58,7 +58,6 @@ class PagesServiceProvider extends ServiceProvider
     {
         // Load views
         $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views', 'voyager-pages');
-        $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views/vendor/voyager', 'voyager');
     }
 
     /**
