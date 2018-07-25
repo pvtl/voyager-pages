@@ -1,10 +1,12 @@
 <?php
 
+use TCG\Voyager\Models\DataRow;
+use TCG\Voyager\Models\DataType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveKeywordsField extends Migration
+class RemovePagesKeywordsField extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +16,19 @@ class RemoveKeywordsField extends Migration
     public function up()
     {
         if (Schema::hasTable('pages')) {
+            // Remove the column from pages table
             Schema::table('pages', function (Blueprint $table) {
-                $table->dropColumn('meta_keywords');
+                if (Schema::hasColumn('pages', 'meta_keywords')) {
+                    $table->dropColumn('meta_keywords');
+                }
             });
+
+            // Remove the data type entry
+            $pageDataType = DataType::where('slug', 'pages')->firstOrFail();
+            DataRow::firstOrNew([
+                'data_type_id' => $pageDataType->id,
+                'field'        => 'meta_keywords',
+            ])->delete();
         }
     }
 
