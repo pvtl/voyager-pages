@@ -24,11 +24,13 @@ class RemovePagesKeywordsField extends Migration
             });
 
             // Remove the data type entry
-            $pageDataType = DataType::where('slug', 'pages')->firstOrFail();
-            DataRow::firstOrNew([
-                'data_type_id' => $pageDataType->id,
-                'field'        => 'meta_keywords',
-            ])->delete();
+            $pageDataType = DataType::where('slug', 'pages')->first();
+            if (!empty($pageDataType)) {
+                DataRow::firstOrNew([
+                    'data_type_id' => $pageDataType->id,
+                    'field'        => 'meta_keywords',
+                ])->delete();
+            }
         }
     }
 
