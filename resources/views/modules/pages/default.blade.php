@@ -4,4 +4,6 @@
 @section('page_title', $page->title)
 @section('page_banner', $page->image, 1200, 211)
 
+@section('content')
 {!! $page->body !!}
+@endsection
