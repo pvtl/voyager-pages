@@ -5,7 +5,6 @@ namespace Pvtl\VoyagerPages;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Translatable;
-use TCG\Voyager\Traits\HasRelationships;
 
 class Page extends Model
 {
