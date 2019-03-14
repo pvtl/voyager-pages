@@ -104,14 +104,14 @@ class PagesDataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'slugify' => [
                         'origin' => 'title',
                     ],
                     'validation' => [
                         'rule'  => 'unique:pages,slug',
                     ],
-                ]),
+                ],
                 'order' => 6,
             ])->save();
         }
@@ -143,13 +143,13 @@ class PagesDataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'default' => 'INACTIVE',
                     'options' => [
                         'INACTIVE' => 'INACTIVE',
                         'ACTIVE'   => 'ACTIVE',
                     ],
-                ]),
+                ],
                 'order' => 9,
             ])->save();
         }
@@ -214,8 +214,8 @@ class PagesDataRowsTableSeeder extends Seeder
     protected function dataRow($type, $field)
     {
         return DataRow::firstOrNew([
-                'data_type_id' => $type->id,
-                'field'        => $field,
-            ]);
+            'data_type_id' => $type->id,
+            'field'        => $field,
+        ]);
     }
 }
