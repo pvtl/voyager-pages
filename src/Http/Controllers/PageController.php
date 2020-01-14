@@ -21,7 +21,7 @@ class PageController extends VoyagerBaseController
      */
     public function getPage($slug = 'home')
     {
-        $page = Page::where('slug', '=', $slug)->firstOrFail();
+        $page = Page::where(['slug' => $slug, 'status' => 'ACTIVE'])->firstOrFail();
 
         return view("{$this->viewPath}::modules.pages.default", [
             'page' => $page,
